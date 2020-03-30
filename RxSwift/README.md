@@ -19,7 +19,8 @@ Finds all the even numbers between 1 and 10<br>
 Check the playground project: **Example_FunctionalProgramming/FilteringEvenNumbers.playground**
 
 ### Example - Reducing
-Take the even numbers between 1 and 10 and compute their sum. This calls for what is known as a **reduce** function, which takes a set of inputs and generates a single output.
+Take the even numbers between 1 and 10 and compute their sum. This calls for what is known as a **reduce** function, which takes a set of inputs and generates a single output.<br>
+Check the playground project: **Example_FunctionalProgramming/ReducingNumbers.playground**
 
 ## Reference
 Swift Functional Programming: https://www.raywenderlich.com/2273-swift-functional-programming-tutorial <br>
