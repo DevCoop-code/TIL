@@ -33,7 +33,7 @@ In RxSwift the type is omitted and instead treated internally as a type that com
 Functional programming is a programming paradigm that emphasizes calculations via mathematical-style functions.<br>
 Functional programming can make concurrency(동시성) and parallel processing(병렬적 처리) easier to work
 
-### Example - Simple Array Filtering
+### Example - Filter
 Finds all the even numbers between 1 and 10<br>
 Check the playground project: **Example_FunctionalProgramming/FilteringEvenNumbers.playground**
 
