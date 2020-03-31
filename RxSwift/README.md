@@ -9,6 +9,25 @@ Functional Reactive Programming is a combination of two other concepts<br>
 1. **Reactive Programming**, which focuses on asynchronous data streams
 2. **Functional Programming**, which emphasizes calculations via mathematical-style functions
 
+### ReactiveCocoa vs RxSwift
+ReactiveCocoa and RxSwift handle several aspects of FRP differently
+#### Hot vs Cold Signals
+- A **cold signal** is a piece of work start when subscribe to it. Each new subscriber starts that work.
+- A **hot signal** can already be sending events. New subscribers don't start it. Normally UI interactions are hot signals
+
+#### Error Handling
+RxSwift and ReactiveCocoa in both frameworks, there are three main events<br>
+1. **Next<T>**: This event is sent every time a new value(of type T) is pushed into the stream of events
+2. **Completed**: Indicates that the stream of events has ended. After tthis event, no Next<T> or Error<E> is sent.
+3. **Error**: Indicates an error. After this event, no Next or Completed is sent
+<br><br>
+In ReactiveCocoa provides types for both hot and cold signals<br>
+hot signals: Signal<T, E>, cold signals; SignalProducer<T, E><br>
+In RxSwift both hot and cold Signals: Observable<T>
+<br><br>
+In ReactiveCocoa's hot and cold signal there are two parameterized types(Signal<T, E>, SignalProducer<T, E>). The second type(E) refers to a type that complies with the Error type Protocol<br>
+In RxSwift the type is omitted and instead treated internally as a type that complies with ErrorType protocol
+
 ## Reference - Swift Functional Programming
 ### What is Functional Programming?
 Functional programming is a programming paradigm that emphasizes calculations via mathematical-style functions.<br>
