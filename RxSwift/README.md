@@ -23,7 +23,8 @@ Take the even numbers between 1 and 10 and compute their sum. This calls for wha
 Check the playground project: **Example_FunctionalProgramming/ReducingNumbers.playground**
 
 ### Example - Map
-Making group a list of words into an index based on the first letter of each word
+Making group a list of words into an index based on the first letter of each word<br>
+Check the playground project: **Example_FunctionalProgramming/Indexing.playground**
 
 ### Summarize Filter, Reduce, Map
 3가지 모두 Array의 함수들<br>
