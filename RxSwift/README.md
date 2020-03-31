@@ -54,4 +54,5 @@ Map: 기존 배열을 새로운 배열로 바꾸는 역할
 ## Reference
 Swift Functional Programming: https://www.raywenderlich.com/2273-swift-functional-programming-tutorial <br>
 ReactiveCocoa vs RxSwift: https://www.raywenderlich.com/1190-reactivecocoa-vs-rxswift <br>
-Getting Started With RxSwift and RxCocoa: https://www.raywenderlich.com/1228891-getting-started-with-rxswift-and-rxcocoa
+Getting Started With RxSwift and RxCocoa: https://www.raywenderlich.com/1228891-getting-started-with-rxswift-and-rxcocoa<br>
+RxSwift Examples: https://github.com/ReactiveX/RxSwift/blob/master/Documentation/Examples.md#simple-ui-bindings
