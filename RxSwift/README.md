@@ -18,9 +18,18 @@ Functional programming can make concurrency(동시성) and parallel processing(�
 Finds all the even numbers between 1 and 10<br>
 Check the playground project: **Example_FunctionalProgramming/FilteringEvenNumbers.playground**
 
-### Example - Reducing
+### Example - Reduce
 Take the even numbers between 1 and 10 and compute their sum. This calls for what is known as a **reduce** function, which takes a set of inputs and generates a single output.<br>
 Check the playground project: **Example_FunctionalProgramming/ReducingNumbers.playground**
+
+### Example - Map
+Making group a list of words into an index based on the first letter of each word
+
+### Summarize Filter, Reduce, Map
+3가지 모두 Array의 함수들<br>
+Filter: Return이 bool인 Closure를 사용하여 배열에서 특정 부분만 추출(Filtering)<br>
+Reduce: 배열의 값들을 합치거나 제일 큰 것을 찾는 등의 역할(말 그대로 배열을 줄이는 역할)<br>
+Map: 기존 배열을 새로운 배열로 바꾸는 역할
 
 ## Reference
 Swift Functional Programming: https://www.raywenderlich.com/2273-swift-functional-programming-tutorial <br>
