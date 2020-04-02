@@ -1,6 +1,21 @@
 # RxSwift
 Reactive Swfit framework
 
+## What are RxSwift and RxCocoa
+**RxSwift** is a framework for interacting with the Swift programming language<br>
+**RxCocoa** is a framework that makes Cocoa APIs used in iOS and OS X easier to use
+
+### Observables and Observers
+An **Observable** emits notifications of change<br>
+An **Observer** subscribes to an Observable and gets notified when that Observable has changed
+<br><br>
+Have Multiple Observers listening to an Observable. When the Observable changes, it will notify all its Observers
+
+### The DisposeBag
+The DisposeBag is an additional tool RxSwift provides to help deal with ARC and memory management. Deallocating a parent object results in the disposal of Observer objects in the DisposeBag
+<br><br>
+When **deinit()** is called on the object that holds the DisposeBag, each disposable Observer is automatically unsubscribed from what it was observing. This allows ARC to take back memory as it normally would
+
 ## ReactiveCocoa vs RxSwift
 Comparison of the two most popular Functional Reactive Programming frameworks
 
