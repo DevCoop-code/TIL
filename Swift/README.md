@@ -1,14 +1,12 @@
 # Swift
 
-## Projects
+## Enumeration
+1. 기본 열거형
+   - DataType/EnumPractice01.playground
+2. 열거형 응용
+   - DataType/EnumPractice02.playground
 
-### Enumeration
-1. DataType/EnumPractice01.playground
-   - 열거형의 응용으로 열거형 변수들끼리 연관을 지은 프로젝트. 열거형 내의 항목(case)이 자신과 연관된 값을 가질 수 있습니다.
-2. DataType/EnumPractice02.playground
-   - 열거형의 CaseIterable을 사용해 allCases를 사용하지 못하는 경우가 존재, 이럴경우 직접 allCases를 정의해주어야 함
-
-### Property
+## Property
 1. 저장 프로퍼티(Stored Properties)
    - 인스턴스의 변수 또는 상수 의미
 2. 연산 프로퍼티(Computed Properties)
