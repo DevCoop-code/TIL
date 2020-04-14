@@ -12,7 +12,7 @@
 2. 연산 프로퍼티(Computed Properties)
    - 값을 저장하는 것이 아닌 특정 연산을 실행한 결과값을 의미(ex]get,set 변수)
 3. 타입 프로퍼티(Type Properties)
-
+   - Property/TypeProperty.playground
 - 지연저장 프로퍼티(lazy stored properties)
   - 호출이 있어야 값을 초기화, lazy 키워드를 사용
 - 프로퍼티 감시자(Property Observers)
