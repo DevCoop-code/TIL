@@ -33,4 +33,20 @@ let reversed_trailingclosureEasy: [String] = names.sorted {
     print("\(first) \(second) 비교중")
     return first > second
 }
-print(reversed_trailingclosureEasy)
+//print(reversed_trailingclosureEasy)
+
+/*
+ 클로저 표현 간소화
+ */
+// ==> 문맥을 이용한 타입 유추
+let reversed2: [String] = names.sorted {
+    (first, second) in
+    return first > second
+}
+print(reversed2)
+
+// ==> 단축 인자 이름
+let reversed3: [String] = names.sorted {
+    return $0 > $1
+}
+print(reversed3)
