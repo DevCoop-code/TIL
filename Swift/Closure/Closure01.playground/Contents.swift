@@ -43,10 +43,47 @@ let reversed2: [String] = names.sorted {
     (first, second) in
     return first > second
 }
-print(reversed2)
+//print(reversed2)
 
 // ==> 단축 인자 이름
 let reversed3: [String] = names.sorted {
     return $0 > $1
 }
-print(reversed3)
+//print(reversed3)
+
+/*
+ 값 획득
+ */
+func makeIncrementer(forIncrement amount: Int) -> (() -> Int)
+{
+    var runningTotal = 0
+    func incrementer() -> Int
+    {
+        runningTotal += amount      //runningTotal 변수와 amount 변수를 값 획득한다
+        return runningTotal
+    }
+    
+    return incrementer
+}
+
+let incrementByTwo: (() -> Int) = makeIncrementer(forIncrement: 2)
+
+let first: Int = incrementByTwo()
+let second: Int = incrementByTwo()
+let third: Int = incrementByTwo()
+
+//print(first)
+//print(second)
+//print(third)
+
+//각각의 closure는 별개의 변수들을 참조
+let incrementByTwo2: (() -> Int) = makeIncrementer(forIncrement: 2)
+let incrementByTen: (() -> Int) = makeIncrementer(forIncrement: 10)
+
+let first2: Int = incrementByTwo2()
+let second2: Int = incrementByTwo2()
+let third2: Int = incrementByTwo2()
+
+let ten: Int = incrementByTen()
+let twenty: Int = incrementByTen()
+let thirty: Int = incrementByTen()
