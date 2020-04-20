@@ -156,8 +156,34 @@ class SomeClass
 let instance: SomeClass = SomeClass()
 
 instance.runNoescapeClosure()
-print(instance.x)
+//print(instance.x)
 
 let returnedEscapeClosure: VoidVoidClosure = instance.runEscapingClosure()
 returnedEscapeClosure()
-print(instance.x)
+//print(instance.x)
+
+
+//withoutActuallyEscaping 함수의 활용
+//withoutActuallyEscaping
+//1st parameter: 탈출클로저인 척해야하는 클로저가 전달
+//2nd parameter: do 전달인자는 이 비탈출 클로저를 또 매개변수로 전달받아 실제로 작업을 수행할 탈출 클로저를 전달
+let numbers: [Int] = [2, 4, 6, 8]
+
+let evenNumberPredicate = { (number: Int) -> Bool in
+    return number % 2 == 0
+}
+
+let oddNumberPredicate = { (number: Int) -> Bool in
+    return number % 2 == 1
+}
+
+func hasElements(in array: [Int], match predicate: (Int) -> Bool) -> Bool
+{
+    return withoutActuallyEscaping(predicate, do: {
+        escapablePredicate in
+        return (array.lazy.filter { escapablePredicate($0) }.isEmpty == false )     //array.lazy의 경우 탈출형 closure를 사용해야함
+    })
+}
+
+let hasEvenNumber = hasElements(in: numbers, match: evenNumberPredicate)
+let hasOOddNumber = hasElements(in: numbers, match: oddNumberPredicate)
