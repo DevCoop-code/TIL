@@ -187,3 +187,39 @@ func hasElements(in array: [Int], match predicate: (Int) -> Bool) -> Bool
 
 let hasEvenNumber = hasElements(in: numbers, match: evenNumberPredicate)
 let hasOOddNumber = hasElements(in: numbers, match: oddNumberPredicate)
+
+/*
+ 자동 클로저
+ */
+var customersInLine: [String] = ["YoangWha", "SangYong", "Sunghun", "HaMi"]
+print(customersInLine.count)
+
+//클로저를 만들어두면 클로저 내부의 코드를 미리 실행(연산)하지 않고 가지고만 있음
+let customerProvider: () -> String = {
+    return customersInLine.removeFirst()
+}
+//print(customersInLine.count)
+
+// 실제 실행
+//print("Now serving \(customerProvider())!")
+//print(customersInLine.count)
+
+func serveCustomer(_ customerProvider: () -> String)
+{
+    print("Now serving \(customerProvider())")
+}
+
+serveCustomer({ customersInLine.removeFirst() })
+
+// ==> 자동 클로저 사용
+/*
+ 매개변수에 @autoclosure 속성을 주었기 때문에 자동 클로저 기능을 사용.
+ 자동 클로저 속성을 부여한 매개변수는 클로저 대신 클로저의 실행결과인 reutrn 값을 전달인자로 받게 됨.
+ 아래 예시의 경우 return 값인 String 타입의 값이 자동 클로저 매개변수에 전달되면 String 값을 매개변수가 없는 String 값을 반환하는 클로저로 변환해줌
+ 자동 클로저는 전달인자를 갖지 않기 때문에 반환 타입의 값이 자동 클로저의 매개변수로 전달되면 이를 클로저로 바꿔줄 수 있음
+ */
+func serveCustomerWithAutoClosure(_ customerProvider: @autoclosure () -> String)
+{
+    print("Now serving \(customerProvider())")
+}
+serveCustomerWithAutoClosure(customersInLine.removeFirst()/*"hello world"*/)
