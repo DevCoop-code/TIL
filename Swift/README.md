@@ -1,10 +1,14 @@
 # Swift
 
+****
+
 ## Enumeration
 1. 기본 열거형
    - DataType/EnumPractice01.playground
 2. 열거형 응용
    - DataType/EnumPractice02.playground
+
+****
 
 ## Property
 1. 저장 프로퍼티(Stored Properties)
@@ -18,6 +22,8 @@
 - 프로퍼티 감시자(Property Observers)
   - 프로퍼티의 값이 변경됨에 따라 적절한 작업을 취할 수 있게 해주는 기능
   - Property/PropertyObservers.playground
+
+****
 
 ## Closure
 함수는 클로저의 한 형태
@@ -72,8 +78,13 @@
 @autoclosure를 사용하여 자동 클로저 임을 암시 <br>
 @autoclosure 속성은 @noescape 속성을 포함. @autoclosure 속성을 사용하면 @noescape 속성도 부여됨을 암시. 만약 자동 클로저를 탈출하는 클로저를 사용하고 싶다면 @autoclosure 속성 뒤에 @escaping 속성을 덧붙여서 **@autoclosure @escaping** 처럼 사용해야 함
 
+****
+
 ## 옵셔널 체이닝과 빠른 종료
 옵셔널을 반복 사용하여 옵셔널이 자전거 체인처럼 서로 꼬리를 물고 있는 모양이기에 옵셔널 체이닝이라 함.<br>
 옵셔널 체이닝은 프로퍼티나 메서드 또는 서브스크립트를 호출하고 싶은 옵셔널 변수나 상수 뒤에 물음표(?)를 붙여 표현. 옵셔널이 nil이 아니라면 정상적으로 호출, nil이라면 결과값으로 nil을 반환.<br>
 옵셔널 체이닝을 통해 메서드와 서브스크립트 호출도 가능
 - Optional/OptionalSample.playground
+
+****
+
