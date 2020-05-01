@@ -226,3 +226,11 @@ Ex] func swapTwoValues<T: BinaryInteger>(_ a:inout T, _ b:inout T,)<br>
 **여러제약을 주고싶다면 콤바보다는 where절을 사용할수도 있음**
 <br>
 Ex] func swapTwoValues<T: BinaryInteger>(_ a:inout T, _ b:inout T,) where T: FloatingPoint
+
+****
+
+## 맵, 필터, 리듀스
+매개변수로 함수를 갖는 함수를 고차함수라 함
+### 맵
+맵(Map)은 자신을 호출할 때 매개변수로 전달된 함수를 실행하여 그 결과를 다시 반환해주는 함수. 스위프트에서 맵은 배열, 딕셔너리, 세트, 옵셔널 등에서 사용 가능 정확히 말하자면 스위프트의 Sequence, Collection 프로토콜을 따르는 타입과 옵셔널은 모두 맵을 사용가능<br>
+**맵은 기존 데이터를 변형하는데 많이 사용**
