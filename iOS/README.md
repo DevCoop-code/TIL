@@ -84,7 +84,23 @@ Leading Edge: 왼쪽 뷰와의 간격
    1. Constraint가 추가된 뷰에서 **removeConstraint** 함수를 호출
 
 ## 교차 계층 구조 자동 레이아웃 Constraint
+인터페이스 빌더 환경에서 구현할 수 없는 자동 레이아웃 Constraint의 몇몇 형태 가운데 하나는 서로 다른 뷰 계층 구조에 있는 뷰들을 참조하는 것
+### 아웃렛 구축하기
+코드에서 교차 계층 구조 Constraint를 설정하려면 아웃렛들을 구현해야 함
 
+## 시각적 형식 언어
+시각적 형식 언어는 일련의 ASCII 문자들을 이용하여 자동 레이아웃 Constraint가 생성될 수 있는 구문을 정의<br>
+이러한 시각적 형식 문자열은 NSLayoutConstraint 클래스의 **constraintsWithVisualFormat** 메서드에 전달하면 Constraint로 바뀜
+### Example
+1. [myButton]: 대괄호로 감싸서 시각적 형식 언어를 표현함
+2. [myButton1][myButton2]: 두 개의 뷰가 서로 나란히 위치
+3. [myButton]-[myButton]: 두 개의 뷰 객체 간의 수평적인 간격은 하이픈(-)으로 표현
+4. [myButton]-30-[myButton]: 두 개의 뷰 사이에 30포인트의 간격을 두도록 지정
+5. V:[myButton]-50-[myButton]: 수직적 컨스트레인트는 접두사로 V:를 이용
+6. [myButton(100)], [myButton(<=100)]: 뷰의 폭을 지정
+7. [myLabel(==myButton)]: 어떤 뷰의 폭이 다른 뷰의 폭과 같도록 지정
+8. |-20-[myButton]-30-|: 어떤 뷰의 슈퍼부에 대한 Constraint는 버티컬 바(|) 문자로 표현됨. 슈퍼뷰의 왼쪽과 오른쪽 끝에 각각 20과 30포인트 간격을 주는 Constraint
+9. [myButton(>=70@500)]: 우선순위 선언, myButton의 폭이 70보다 크거나 같으면 우선순위 값을 500으로 지정
 
 
 ## CALayer
