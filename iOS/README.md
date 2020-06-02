@@ -64,6 +64,21 @@ Constraint를 생성하는 가장 쉬운 방법은 툴바의 옵션들을 이용
 ## 자동 레이아웃 문제 해결하기
 누락된 Constraint를 자동으로 추가한다거나 추천 Constraint로 다시 설정하는것과 같은 작업을 수행하기 위해 Resolve Auto Layout Issue메뉴에 있는 옵션들을 이용해 해결할 수 있음
 
+## Constraint Priority 설정방법
+Constraint를 더블 클릭하여 설정이 가능<br>
+![SettingConstraintPriority](./Images/settingPriority.png)<br>
+
+## 코드에서 Constraint 생성하기
+코드에서 Constraint 구현은 2가지로 이뤄짐
+1. Constraint를 생성
+   1. Constraint 생성: **NSLayoutConstraint** 클래스의 인스턴스가 생성되어야함
+   2. 구현하고자 하는 설정으로 초기화: **constraintWithItem** 메서드를 사용
+2. 뷰에 해당 Constraint를 추가
+   1. 뷰에 할당: 뷰 인스턴스의 **addConstraint** 멧서드의 인자로 전달
+   2. 여러 개의 Constraint를 적용할 경우는 각각의 Constraint 마다 addConstraint 메서드를 추가
+
+
+
 ## CALayer
 UIView에 속하며 UIView를 지원해주는 역할을 함. 각 뷰마다 루트 layer는 하나씩 존재하고 이 루트 layer는 각각 SubLayer들을 가짐.<br>
 뷰 위에 컨텐츠와 애니메이션을 그리는 행위는 CALayer가 담당하게 됨<br>

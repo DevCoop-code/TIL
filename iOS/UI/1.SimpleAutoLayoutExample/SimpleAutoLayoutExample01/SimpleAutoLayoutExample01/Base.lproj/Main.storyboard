@@ -48,5 +48,50 @@
             </objects>
             <point key="canvasLocation" x="89.855072463768124" y="183.48214285714286"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="WyA-rK-Za1">
+            <objects>
+                <viewController id="QOw-Dp-g6W" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AJE-8B-jB3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Customer Record:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5L-XO-YVw">
+                                <rect key="frame" x="0.0" y="48" width="186" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fsx-lZ-qik">
+                                <rect key="frame" x="20" y="89" width="374" height="773"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBM-aE-4xW">
+                                <rect key="frame" x="186" y="48" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="d5L-XO-YVw" firstAttribute="firstBaseline" secondItem="LBM-aE-4xW" secondAttribute="firstBaseline" id="6vo-5v-sQ6"/>
+                            <constraint firstItem="pZq-tJ-eEG" firstAttribute="trailing" secondItem="Fsx-lZ-qik" secondAttribute="trailing" constant="20" id="CLn-bH-60T"/>
+                            <constraint firstItem="d5L-XO-YVw" firstAttribute="leading" secondItem="pZq-tJ-eEG" secondAttribute="leading" id="JnA-Ab-YBV"/>
+                            <constraint firstItem="Fsx-lZ-qik" firstAttribute="leading" secondItem="pZq-tJ-eEG" secondAttribute="leading" constant="20" id="baD-AD-gUU"/>
+                            <constraint firstItem="d5L-XO-YVw" firstAttribute="top" secondItem="pZq-tJ-eEG" secondAttribute="top" constant="4" id="laS-u2-lvh"/>
+                            <constraint firstItem="LBM-aE-4xW" firstAttribute="centerX" secondItem="AJE-8B-jB3" secondAttribute="centerX" id="o4e-FX-cir"/>
+                            <constraint firstItem="Fsx-lZ-qik" firstAttribute="top" secondItem="d5L-XO-YVw" secondAttribute="bottom" constant="20" id="ogb-5b-7Fe"/>
+                            <constraint firstItem="Fsx-lZ-qik" firstAttribute="bottom" secondItem="pZq-tJ-eEG" secondAttribute="bottom" id="pP4-0e-Cac"/>
+                            <constraint firstItem="LBM-aE-4xW" firstAttribute="leading" secondItem="d5L-XO-YVw" secondAttribute="trailing" id="rmO-FW-CNj"/>
+                            <constraint firstItem="LBM-aE-4xW" firstAttribute="top" secondItem="pZq-tJ-eEG" secondAttribute="top" constant="4" id="wuT-Ig-rqU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pZq-tJ-eEG"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DFJ-ON-ocy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1050.7246376811595" y="182.8125"/>
+        </scene>
     </scenes>
 </document>
