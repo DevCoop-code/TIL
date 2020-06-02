@@ -68,6 +68,10 @@ Constraint를 생성하는 가장 쉬운 방법은 툴바의 옵션들을 이용
 Constraint를 더블 클릭하여 설정이 가능<br>
 ![SettingConstraintPriority](./Images/settingPriority.png)<br>
 
+## Trailing & Leading
+Trailing Edge: 오른쪽 뷰와의 간격 <br>
+Leading Edge: 왼쪽 뷰와의 간격
+
 ## 코드에서 Constraint 생성하기
 코드에서 Constraint 구현은 2가지로 이뤄짐
 1. Constraint를 생성
@@ -76,6 +80,10 @@ Constraint를 더블 클릭하여 설정이 가능<br>
 2. 뷰에 해당 Constraint를 추가
    1. 뷰에 할당: 뷰 인스턴스의 **addConstraint** 멧서드의 인자로 전달
    2. 여러 개의 Constraint를 적용할 경우는 각각의 Constraint 마다 addConstraint 메서드를 추가
+3. Constraint 제거하기
+   1. Constraint가 추가된 뷰에서 **removeConstraint** 함수를 호출
+
+## 교차 계층 구조 자동 레이아웃 Constraint
 
 
 
