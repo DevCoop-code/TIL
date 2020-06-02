@@ -102,6 +102,35 @@ Leading Edge: 왼쪽 뷰와의 간격
 8. |-20-[myButton]-30-|: 어떤 뷰의 슈퍼부에 대한 Constraint는 버티컬 바(|) 문자로 표현됨. 슈퍼뷰의 왼쪽과 오른쪽 끝에 각각 20과 30포인트 간격을 주는 Constraint
 9. [myButton(>=70@500)]: 우선순위 선언, myButton의 폭이 70보다 크거나 같으면 우선순위 값을 500으로 지정
 
+## Stack View
+UIStackView 클래스는 하위 뷰들을 행(row)방향이나 열(column) 방향으로 배치할 수 있도록 해주는 사용자 인터페이스 요소<br>
+UIStackView 객체는 오브젝트 라이브러리에서 Horizontal Stack View나 Vertical Stack View를 화면 캔버스로 드래그 앤 드롭하면 스토리보드 화면에 포함시킬 수 있음
+### 하위 뷰와 배치된 하위 뷰 이해하기
+UIStackView 클래스는 **subviews**라는 이름의 속성을 가지고 있음. 이것은 스택 뷰 객체에 포함된 각각의 하위 뷰들에 대한 배열임
+![subviewsInStackView_Image](./Images/subviewsInStackView.png)<br>
+![deployedSubviewsInStackView_Image](./Images/deployedSubviewsInStackView.png)<br>
+### 스택 뷰 설정 옵션들
+- **Axis**
+  - 하위 뷰들의 **방향**을 결정, 하위 뷰들을 수직 열방향으로 레이아웃을 배치할것인지 아니면 수평 행방향으로 배치할 것인지를 결정
+  - **UILayoutConstraintAxisVertical**, **UILayoutConstraintAxisHorizontal**로 설정 됨
+- **Distribution**
+  - 스택 뷰의 하위 뷰들이 어떤 **크기**를 갖게 되는 방법을 지정
+  - Fill: 하위 뷰들이 스택 뷰에서 사용할 수 있는 전체 영역에 가득 차도록 크기가 조정, 하위 뷰의 높이가 스택 뷰의 수직 방향 전체 높이가 되고 하위 뷰의 폭이 스택 뷰의 수평 방향 전체가 되도록 변경
+   .......
+- **Spacing**
+  - Spacing 속성은 스택 뷰 내에서 인접해 있는 하위 뷰들의 가장자리 간의 거리를 포인트 단위로 지정
+  - 음수의 spacing 값을 사용하면 하위 뷰들이 겹쳐지게 될 것임
+- **Alignment**
+  - alignment 속성은 스택 뷰에서의 하위 뷰들의 **위치**를 제어함
+  - Fill: 스택 뷰의 방향에 대한 직각 방향에 있는 공간을 채우기 위해 크기가 조절
+
+### 기존의 스택 뷰에 하위 뷰 추가하기
+- **addArrangedSubview**메서드를 이용하면 스택 뷰의 arrangedSubviews 배열 끝에 하위 뷰를 추가할 수 있음
+- **insertArrangedSubview:atIndex**메서드 호출을 통하여 하위 뷰의 배열 내의 특정 인덱스 위치에 삽입할 수 있음
+
+### 하위 뷰 숨기기와 삭제하기
+스택 뷰에서 배치된 하위 뷰를 제거하기 위해선 스택 뷰 객체의 **removeArrangedSubview** 메서드를 호출<br>
+removeArrangedSubview 메서드는 arrangedSubviews에서만 삭제. 하위 뷰는 여전히 하위 뷰 배열에 존재할 것이고 화면에도 여전히 표시될 것 ==> 하위 뷰를 삭제하는 방법을 대체할 수 있는 것은 숨기는 방법 BUT, 어떤 하위 뷰가 이제 다시 필요 없다면 arrangedSubviews 배열에서 삭제후 **removeFromSuperview**메서드를 호출하여 완전히 삭제하는 것도 가능함
 
 ## CALayer
 UIView에 속하며 UIView를 지원해주는 역할을 함. 각 뷰마다 루트 layer는 하나씩 존재하고 이 루트 layer는 각각 SubLayer들을 가짐.<br>
