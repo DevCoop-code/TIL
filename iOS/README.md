@@ -24,8 +24,8 @@ superview는 subview의 위치 및 크기를 바꿀수 있음
 ### 고유한 컨텐츠 사이즈
 몇몇 뷰들은 고유한 콘텐츠 사이즈(intrinsic content size)라는 것을 가지고 있음. 이것은 뷰 자신이 사용자에게 콘텐츠를 표시할 때 필요하다고 생각하는 크기.<br>
 고유한 컨텐츠 사이즈를 가지면 자동 레이아웃은 그 뷰가 가진 고유한 컨텐츠 사이즈 설정에 대한 각 범위의 두 가지 Constraint를 자동으로 할당<br>
-1. Content hugging : 뷰의 크기가 컨텐츠의 크기보다 더 커지지 않도록 함
-2. Compression resistance : 뷰의 크기가 콘텐츠보다 더 작아지지 않도록 함
+1. **Content hugging** : 뷰의 크기가 컨텐츠의 크기보다 더 커지지 않도록 함
+2. **Compression resistance** : 뷰의 크기가 콘텐츠보다 더 작아지지 않도록 함
 
 ## 인터페이스빌더에서 자동레이아웃 Constraint로 작업하기
 Xcode Storyboard의 Inspector 패널에 보면 아래와 같은 속성이 있음.<br>
