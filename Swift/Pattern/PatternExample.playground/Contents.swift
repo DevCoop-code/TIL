@@ -160,3 +160,202 @@ for dish in dishes {
         break
     }
 }
+
+/*
+ 옵셔널 패턴(Optional Pattern)
+ */
+var optionalValue: Int? = 100
+
+if case .some(let value) = optionalValue {      // some: 사용한 불명확 타입 기능
+    print(value)
+}
+
+if case let value? = optionalValue {
+    print(value)
+}
+
+func isItHasValue(_ optionalValue: Int?) {
+    guard case .some(let value) = optionalValue else {
+        print("none")
+        return
+    }
+    
+    print(value)
+}
+
+isItHasValue(optionalValue)
+
+while case .some(let value) = optionalValue {
+    print(value)
+    optionalValue = nil
+}
+
+print(optionalValue)
+
+let arrayOfOptionalInts: [Int?] = [nil, 2, 3, nil, 5]
+
+for case let number? in arrayOfOptionalInts {
+    print("Found a \(number)")
+}
+
+/*
+ 타입 캐스팅 패턴
+ */
+let someValue2: Any = 100
+
+switch someValue2 {
+    // 타입이 Int인지 확인하지만 캐스팅된 값을 사용할 수는 없음
+case is String:
+    print("It's String!")
+    
+    // 타입 확인과 동시에 캐스팅까지 완료되어 value에 저장
+    // 값 바인딩 패턴과 결합된 모습
+case let value as Int:
+    print(value + 1)
+    
+default:
+    print("Int도 String도 아님")
+}
+
+/*
+ 표현 패턴
+ */
+switch 3 {
+case 0...5:
+    print("0과 5 사이")
+default:
+    print("0보다 작거나 5보다 큽니다")
+}
+
+var point: (Int, Int) = (1, 2)
+
+// 같은 타입 간의 비교이므로 == 연산자를 사용해 비교
+switch point {
+case (0, 0):
+    print("원점")
+case (-2...2, -2...2):
+    print("\(point.0), \(point.1)은 원점과 가깝습니다.")
+default:
+    print("point \(point.0), \(point.1)")
+}
+
+// String 타입과 Int 타입이 매치될 수 있도록 ~= 연산자를 정의함
+// case tuple 첫번째 원소와 switch 변수의 첫번째 변수와 매칭, case tuple 두번째 원소와 switch 변수의 두번째 변수와 매칭,,,,,
+func ~= (pattern: String, value: Int) -> Bool {     // switch case 문 표현식
+    print("[Pattern: \(pattern) value: \(value)]")
+    return pattern == "\(value)"
+}
+
+point = (0, 0)
+
+// 새로 정의된 ~= 연산자를 사용하여 비교
+switch point {
+case ("0", "0"):
+    print("원점")
+default:
+    print("point (\(point.0)), (\(point.1))")
+}
+
+
+struct Person {
+    var name: String
+    var age: Int
+}
+
+let lingo: Person = Person(name: "Lingo", age: 31)
+func ~= (pattern: String, value: Person) -> Bool {
+    return pattern == value.name
+}
+
+func ~= (pattern: Person, value: Person) -> Bool {
+    return (pattern.name == value.name) && (pattern.age == value.age)
+}
+
+switch lingo {
+case Person(name: "Lingo", age: 31):
+    print("Same Person!!")
+case "Lingo":
+    print("Hello Lingo!!")
+default:
+    print("I don't know who you are")
+}
+
+// Generic을 사용한 표현 패턴 활용
+// Generic을 사용하기 위해 프로토콜을 정의
+// 프로토콜과 제네릭을 더해 특정 프로토콜을 따르는 타입에 대해서 원하는 패턴을 만들 수 있음
+protocol Personalize {
+    var name: String { get }
+    var age: Int { get }
+}
+
+struct Man: Personalize {
+    var name: String
+    var age: Int
+}
+
+let star: Man = Man(name: "star", age: 31)
+
+// Generic을 사용하여 패턴 연산자를 정의
+func ~= <T: Personalize>(pattern: String, value: T) -> Bool {
+    return pattern == value.name
+}
+
+func ~= <T: Personalize>(pattern: T, value: T) -> Bool {
+    return pattern.name == value.name && pattern.age == value.age
+}
+
+// 기존 패턴 연산자가 없더라도 제네릭 패턴 연산자로 똑같이 사용이 가능
+switch star {
+case Man(name: "star", age: 31):
+    print("Same Person!!")
+case "star":
+    print("Hello Star")
+default:
+    print("I don't know who you are")
+}
+
+/*
+ 제네릭을 사용하여 패턴 연산자를 정의(패턴 자체가 함수임을 유의)
+ */
+func ~= <T: Personalize>(pattern: (T) -> Bool, value: T) -> Bool {
+    return pattern(value)
+}
+// 패턴에 사용할 제네릭 함수
+func young<T: Personalize>(value: T) -> Bool {
+    return value.age < 50
+}
+
+switch star {
+case young:
+    print("\(star.name) is young")
+default:
+    print("\(star.name) is old")
+}
+
+// 패턴에 사용할 제네릭 함수
+func isNamed<T: Personalize>(_ pattern: String) -> ((T) -> Bool) {
+    return { (value: T) -> Bool in value.name == pattern }
+    // 패턴과 값을 비교할 클로저를 반환
+}
+
+switch star {
+    // 패턴결합을 하면 isNamed("Jung")(star)와 같은 효과를 봄
+case isNamed("Jung"):
+    print("He is Jung")
+default:
+    print("Another person")
+}
+
+// 연산자가 함수라는 점을 생각하면 이러한 방식으로도 구현이 가능
+prefix operator ==?
+
+prefix func ==? <T: Personalize>(pattern: String) -> ((T) -> Bool) {
+    return isNamed(pattern)
+}
+
+switch star {
+case ==?"Jung":
+    print("He is Jung")
+default:
+    print("Another person")
+}
