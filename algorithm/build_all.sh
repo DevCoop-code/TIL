@@ -2,10 +2,11 @@
 rootBuildPath=$1
 export objectFileSet
 export sourceFileExtension
+export libraryFileSet
 
 echo "=====Build C/C++ using gcc compiler====="
 
-if [ -f output ]; then
+if [ -d output ]; then
 	echo "output directory already exists"
 else
 	$(mkdir output)
@@ -15,7 +16,7 @@ fi
 # Delete all of old output data
 $(rm -rf output/*)
 
-if [ -f temp ]; then
+if [ -d temp ]; then
 	echo "temp directory already exists"
 	
 	$(rm -rf temp/)
@@ -25,7 +26,7 @@ else
 fi
 
 # Compile the files
-sourceFileSet=$(ls ${rootBuildPath}/sources/*.cpp)
+sourceFileSet=$(ls ${rootBuildPath}/sources/*)
 
 for sourceFile in ${sourceFileSet[@]}; do
 	objectFileName=$(basename ${sourceFile})
@@ -33,13 +34,13 @@ for sourceFile in ${sourceFileSet[@]}; do
 	sourceFileExtension="${objectFileName##*.}"
 
 	if [ ${sourceFileExtension} == "cpp" ]; then
-		if [ -f ${rootBuildPath}/headers ]; then
+		if [ -d ${rootBuildPath}/headers ]; then
 			g++ -c ${sourceFile} -I ${rootBuildPath}/headers/
 		else	
 			g++ -c ${sourceFile}
 		fi
 	else
-		if [ -f ${rootBuildPath}/headers ]; then
+		if [ -d ${rootBuildPath}/headers ]; then
 			gcc -c ${sourceFile} -I ${rootBuildPath}/headers/
 		else	
 			gcc -c ${sourceFile}
@@ -47,16 +48,26 @@ for sourceFile in ${sourceFileSet[@]}; do
 	fi
 	mv ${objectNameWithoutExtension}.o temp/
 
-	objectFileSet=${objectFileSet}temp/${objectNameWithoutExtension}.o
+	objectFileSet="${objectFileSet} temp/${objectNameWithoutExtension}.o"
 done
 
-if [ ${sourceFileExtension} == 'cpp' ]; then
-	g++ $objectFileSet -o output/main
-else
-	gcc $objectFileSet -o output/main
+if [ -d ${rootBuildPath}/libs ]; then
+	libSet=$(ls ${rootBuildPath}/libs/*)
+	for library in ${libSet[@]}; do
+		libraryName=$(basename ${library})
+		libraryNameWithoutExtension="${libraryName%.*}"
+
+		libName=${libraryNameWithoutExtension:3}
+		libraryFileSet="${libraryFileSet} -l${libName}"
+	done
 fi
 
+if [ ${sourceFileExtension} == 'cpp' ]; then
+	g++ $libraryFileSet $objectFileSet -o output/main
+else
+	gcc $libraryFileSet $objectFileSet -o output/main
+fi
+
+echo "===DONE==="
+
 $(rm -rf temp/)
-
-./output/main
-
