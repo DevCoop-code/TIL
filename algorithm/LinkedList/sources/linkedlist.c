@@ -115,6 +115,34 @@ int main() {
             case 'i':
             case 'I':
             printf("=INSERT= \n");
+            printf("Insert Data: ");
+            int insert_data = inputData();
+            printf("\n");
+
+            Node* insertNewNode = (Node*)malloc(sizeof(Node));
+            insertNewNode->Data = insert_data;
+            insertNewNode->NextNode = NULL;
+            
+            printf("Insert Location: ");
+            int insert_loc = inputData();
+            printf("\n");
+
+            Node* InsertNode = head;
+            int insertedIndex = 1;
+            while (1) {
+                if (InsertNode == NULL) {
+                    break;
+                } else {
+                    if (insertedIndex == insert_loc) {
+                        insertNewNode->NextNode = InsertNode->NextNode;
+                        InsertNode->NextNode = insertNewNode;
+                        insertedIndex++;
+                    }
+                }
+                InsertNode = InsertNode->NextNode;
+                insertedIndex++;
+            }
+            
             break;
 
             case 'q':
