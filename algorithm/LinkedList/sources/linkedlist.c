@@ -69,18 +69,28 @@ int main() {
             case 'r':
             case 'R':
             printf("=REMOVE= \n");
-            printf("Remove Data: \n");
+            printf("Remove Data: ");
             int removed_data = inputData();
 
             Node* RemoveNode = head;
+            Node* PreviousNode;
             while (1) {
                 if (RemoveNode == NULL) {
                     break;
                 } else {
-                    if (RemoveNode->Data == removed_data) {
+                    // 삭제하고자 하는 데이터가 Head 데이터일 경우
+                    if (head->Data == removed_data) {
+                        head = RemoveNode->NextNode;
+                        free(RemoveNode);
+                    }
+                    else if (RemoveNode->Data == removed_data) {
                         printf("Find the Data start to remove");
                         
+                        PreviousNode->NextNode = RemoveNode->NextNode;
+                        free(RemoveNode);
+                        RemoveNode = PreviousNode;
                     }
+                    PreviousNode = RemoveNode;
                     RemoveNode = RemoveNode->NextNode;
                 }
             }
