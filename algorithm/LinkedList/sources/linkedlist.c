@@ -36,11 +36,12 @@ int main() {
             case 'a':
             case 'A':
             printf("=ADD= \n");
-            int data = inputData();
+            printf("Add Data: ");
+            int add_data = inputData();
 
             // Generate new node
             Node* newNode = (Node*)malloc(sizeof(Node));
-            newNode->Data = data;
+            newNode->Data = add_data;
             newNode->NextNode = NULL;
             
             if (head == NULL) {
@@ -68,6 +69,21 @@ int main() {
             case 'r':
             case 'R':
             printf("=REMOVE= \n");
+            printf("Remove Data: \n");
+            int removed_data = inputData();
+
+            Node* RemoveNode = head;
+            while (1) {
+                if (RemoveNode == NULL) {
+                    break;
+                } else {
+                    if (RemoveNode->Data == removed_data) {
+                        printf("Find the Data start to remove");
+                        
+                    }
+                    RemoveNode = RemoveNode->NextNode;
+                }
+            }
             break;
 
             case 's':
@@ -135,7 +151,6 @@ int main() {
 
 int inputData() {
     int data;
-    printf("Add Data: ");
     scanf("%d", &data);
     fflush(stdin);
 
