@@ -46,8 +46,8 @@ class StackViewController: UIViewController {
         
         vertical.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         vertical.bottomAnchor.constraint(equalTo: horizontal.bottomAnchor).isActive = true
-        vertical.leadingAnchor.constraint(equalTo: horizontal.leadingAnchor).isActive = true
-        vertical.trailingAnchor.constraint(equalTo: horizontal.trailingAnchor).isActive = true
+        vertical.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        vertical.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
     }
 
     @objc func addView() {
