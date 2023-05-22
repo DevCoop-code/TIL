@@ -1,5 +1,5 @@
-# Daily Commit Note
-Storage to record what i've studied every day
+# Today I Learned
+Code Repository for what i learned
 
 ## Directory Structure
 - CS: Study Computer Science
@@ -8,10 +8,6 @@ Storage to record what i've studied every day
 - iOS: Study iOS
   - UI: Study iOS UI
 
-## Goals for 2020 Year
-1. Make iOS Video Player SDK
-2. Make iOS Video Editor Application
-3. Make iOS Unity Video Player SDK<br>
-   3-1. Related Repository:  https://github.com/hankyojeong/UAVPlayer
-
-## Tags
+## Other Study Repository
+- [DeepLearning Summary](https://github.com/DevCoop-code/DeepLearning_Summary)
+- [Unity Summary](https://github.com/DevCoop-code/UnityTech_Summary)
