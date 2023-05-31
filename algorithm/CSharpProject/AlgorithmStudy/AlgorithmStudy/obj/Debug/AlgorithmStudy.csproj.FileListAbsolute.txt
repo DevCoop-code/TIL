@@ -1,0 +1,6 @@
+/Users/hangyojeong/Dev/TIL/Algorithm/CSharpProject/AlgorithmStudy/AlgorithmStudy/bin/Debug/AlgorithmStudy.exe
+/Users/hangyojeong/Dev/TIL/Algorithm/CSharpProject/AlgorithmStudy/AlgorithmStudy/bin/Debug/AlgorithmStudy.pdb
+/Users/hangyojeong/Dev/TIL/Algorithm/CSharpProject/AlgorithmStudy/AlgorithmStudy/obj/Debug/AlgorithmStudy.csproj.AssemblyReference.cache
+/Users/hangyojeong/Dev/TIL/Algorithm/CSharpProject/AlgorithmStudy/AlgorithmStudy/obj/Debug/AlgorithmStudy.csproj.CoreCompileInputs.cache
+/Users/hangyojeong/Dev/TIL/Algorithm/CSharpProject/AlgorithmStudy/AlgorithmStudy/obj/Debug/AlgorithmStudy.exe
+/Users/hangyojeong/Dev/TIL/Algorithm/CSharpProject/AlgorithmStudy/AlgorithmStudy/obj/Debug/AlgorithmStudy.pdb
